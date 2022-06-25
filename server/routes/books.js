@@ -25,12 +25,14 @@ router.get('/', (req, res, next) => {
 
 //  GET the Book Details page in order to add a new Book
 router.get('/add', (req, res, next) => {
+  //Placeholder for empty book details
   let blankBookDetails = {
     "Title": "",
     "Price": "",
     "Author": "",
     "Genre": ""
   }
+  //Send blank book details
   res.render('books/details', {
     title: 'Add Book',
     books: blankBookDetails
@@ -47,7 +49,7 @@ router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    
+    //Placeholder for book details
     let newBookDetails = book({
       "Title": req.body.title,
       "Price": req.body.price,
@@ -70,7 +72,7 @@ router.post('/add', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
     let bookId = req.params.id;
 
-    //console.log(bookId)
+    //cget book from database and send it with render request
     book.findById(bookId, (err, editBook) => {
       console.log(editBook)
       if (err) {
@@ -92,7 +94,7 @@ router.get('/:id', (req, res, next) => {
 // POST - process the information passed from the details form and update the document
 router.post('/:id', (req, res, next) => {
     let bookId = req.params.id;
-    
+    //Placeholder for book details
     let newBookDetails = book({
       "_id": bookId,
       "Title": req.body.title,
@@ -107,6 +109,7 @@ router.post('/:id', (req, res, next) => {
         res.end(err);
       }
       else {
+        //Redirect o books main page
         res.redirect("/books")
       }
     })
@@ -125,6 +128,7 @@ router.get('/delete/:id', (req, res, next) => {
       res.end(err);
     }
     else {
+      //Redirect o books main page
       res.redirect("/books")
     }
   })

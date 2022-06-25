@@ -4,6 +4,8 @@
 
 please use **`npm install`** to install project dependencies
 
-## ABHISHEK JAMWAL 
-## 301193790
-## COMP229-S2022-MidTerm-301193790
+> BY :
+
+#### ABHISHEK JAMWAL 
+#### 301193790
+#### COMP229-S2022-MidTerm-301193790
